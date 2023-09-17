@@ -1,22 +1,15 @@
-import s from './Home.module.css'
+import CarItem from './car-item/CarItem'
 import { cars } from './cars.data'
+import CreateCarForm from './create-car-form/CreateCarForm'
+
 function Home() {
 	return (
 		<>
 			<h1>Cars catalog</h1>
+			<CreateCarForm />
 			<div>
 				{cars.map(car => (
-					<div key={car.id} className={s.item}>
-						<div
-							className={s.image}
-							style={{ backgroundImage: `url(${car.image})` }}
-						/>
-						<div className={s.info}>
-							<h2>Car 1</h2>
-							<p>$100 000</p>
-							<button>Read more</button>
-						</div>
-					</div>
+					<CarItem key={car.id} car={car} />
 				))}
 			</div>
 		</>
