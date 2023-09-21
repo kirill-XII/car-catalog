@@ -1,13 +1,24 @@
 import s from './CreateCarForm.module.css'
 import React, { useState } from 'react'
 
-const CreateCarForm = () => {
-	const [name, setName] = useState('')
-	const [prise, setPrise] = useState('')
-	const [image, setImage] = useState('')
+const clearData = {
+	prise: '',
+	name: '',
+	image: '',
+}
+
+const CreateCarForm = ({ setCars }) => {
+	// const [name, setName] = useState('')
+	// const [price, setPrise] = useState('')
+	// const [image, setImage] = useState('')
+
+	const [data, setData] = useState(clearData)
+
 	const createCar = e => {
 		e.preventDefault()
-		console.log({ name, prise, image })
+
+		setCars(prev => [{ id: prev.length + 1, ...data }, ...prev])
+		setData(clearData)
 	}
 
 	return (
@@ -15,20 +26,20 @@ const CreateCarForm = () => {
 			<input
 				style={{ display: 'block' }}
 				placeholder='Name'
-				onChange={e => setName(e.target.value)}
-				value={name}
+				onChange={e => setData(prev => ({ ...prev, name: e.target.value }))}
+				value={data.name}
 			/>
 			<input
 				style={{ display: 'block' }}
 				placeholder='Prise'
-				onChange={e => setPrise(e.target.value)}
-				value={prise}
+				onChange={e => setData(prev => ({ ...prev, prise: e.target.value }))}
+				value={data.prise}
 			/>
 			<input
 				style={{ display: 'block' }}
 				placeholder='Image'
-				onChange={e => setImage(e.target.value)}
-				value={image}
+				onChange={e => setData(prev => ({ ...prev, image: e.target.value }))}
+				value={data.image}
 			/>
 			<button className={s.btn} onClick={e => createCar(e)}>
 				Create
