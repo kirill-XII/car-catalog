@@ -12,7 +12,7 @@ function CarItem({ car }) {
 					{new Intl.NumberFormat('ru-RU', {
 						style: 'currency',
 						currency: 'USD',
-					}).format(car.prise)}
+					}).format(car.price)}
 				</p>
 				<button>Read more</button>
 			</div>

@@ -2,7 +2,7 @@ import s from './CreateCarForm.module.css'
 import React, { useState } from 'react'
 
 const clearData = {
-	prise: '',
+	price: '',
 	name: '',
 	image: '',
 }
@@ -32,8 +32,8 @@ const CreateCarForm = ({ setCars }) => {
 			<input
 				style={{ display: 'block' }}
 				placeholder='Prise'
-				onChange={e => setData(prev => ({ ...prev, prise: e.target.value }))}
-				value={data.prise}
+				onChange={e => setData(prev => ({ ...prev, price: e.target.value }))}
+				value={data.price}
 			/>
 			<input
 				style={{ display: 'block' }}
